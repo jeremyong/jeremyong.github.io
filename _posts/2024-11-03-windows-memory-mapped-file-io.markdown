@@ -596,7 +596,10 @@ remove them from the working set. Just be sure you aren't doing this on pages
 that will be used soon, as this will result in unnecessary page faults. Note that
 despite the name, you do _not_ need to call `VirtualLock` on memory you wish to
 releases in this way first. As mentioned before, you cannot transition memory
-committed in this approach back to the "reserved" state.
+committed in this approach back to the "reserved" state. If you know you aren't
+going to use a file for a while, it may be worth releasing the mapped view to
+reduce the commit charge and also free up page table space for particularly
+large files.
 
 I use this in very narrow circumstances, typically when processing large files
 sequentially, and consider it "advanced" API usage I'd only reach for with a
