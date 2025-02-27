@@ -61,7 +61,7 @@ to think of `SV_GroupID` as `SV_DispatchGroupID` instead to recover the logical 
 
 With those terms out of the way, we arrive at the last value to remember:`SV_GroupIndex`. Unlike `SV_GroupID`, whose values are mapped to groups,
 `SV_GroupIndex` values are mapped to _threads_. Confusing, right? Specifically, `SV_GroupIndex` values map to "threads within a group".
-Given the main function above with attribute `numthreads(5, 5, 1)`, `SV_GroupID` would take on values from 0 to 24 inclusive.
+Given the main function above with attribute `numthreads(5, 5, 1)`, `SV_GroupIndex` would take on values from 0 to 24 inclusive.
 The naming of this value is particularly egregious, because while the index describes "threads", the term "thread" doesn't appear in the name itself.
 
 Note that there is no `SV_DispatchIndex` value which would hypothetically be a flattened thread index unique across the entire dispatch.
