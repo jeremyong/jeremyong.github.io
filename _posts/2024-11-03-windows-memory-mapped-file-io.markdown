@@ -559,11 +559,10 @@ void* readonly_data = nullptr;
 MapViewOfFileEx(
     mapping,
     FILE_MAP_READ,
-    (void**)&readonly_data,
     0u, // Offset high
     0u, // Offset low
     max_size,
-    (void*)data);
+    (void*)readonly_data);
 ```
 
 This way, you can hand out a pointer to read-only memory in cases where users
